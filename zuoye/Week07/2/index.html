@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>图片淡出淡入</title>
+<style></style>
+<script>
+function fadeIn(){
+	var pic=document.getElementById("pic");
+	pic.style.display="block";
+	pic.style.opacity=0;
+	var val=0;
+	(function(){
+		pic.style.opacity=val/100;
+		val+=2;
+		if(val<=100){
+			setTimeout(arguments.callee,20);
+		}
+	})();
+}
+function fadeOut(){
+	var pic=document.getElementById("pic");
+	var val=100;
+	(function(){
+		pic.style.opacity=val/100;
+		val-=2;
+		if(val>=0){
+			setTimeout(arguments.callee,20);
+		}else if(val<0){
+			pic.style.display="none";
+		}
+	})();
+}
+</script>
+</head>
+
+<body>
+	<img id="pic" src="images/xiangji.jpg" style="display:none;"/>
+	<input type="button" value="淡入" onclick="fadeIn()" />
+	<input type="button" value="淡出" onclick="fadeOut()" />
+</body>
+
+</html>
