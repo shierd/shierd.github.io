@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>弹球游戏</title>
+<style>
+.brick{
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+#par{
+	position:absolute;
+	left:25%;
+}
+</style>
+</head>
+
+<body>
+
+<div id="par"></div>
+
+<script>
+var parDiv=document.getElementById("par");
+var totle=24//parseInt(prompt("请输入总砖块数(12的倍数)：",""));
+var row=totle/12;
+for(var j=0;j<row;j++){
+	for(var i=0;i<12;i++){
+	var newDiv=document.createElement("div");
+	newDiv.innerHTML="<img src='images/1.jpg'>"
+	newDiv.setAttribute("class","brick");
+	newDiv.style.left=(i*52)+"px";
+	newDiv.style.top=(j*23)+"px";
+	parDiv.appendChild(newDiv);
+}
+}
+</script>
+</body>
+
+</html>
